@@ -19,6 +19,7 @@ import ListStyle from "@ckeditor/ckeditor5-list/src/liststyle.js";
 import PageBreak from "@ckeditor/ckeditor5-page-break/src/pagebreak.js";
 import Paragraph from "@ckeditor/ckeditor5-paragraph/src/paragraph.js";
 import Placeholder from "./flettekoder";
+import SourceEditing from "@ckeditor/ckeditor5-source-editing/src/sourceediting";
 import Table from "@ckeditor/ckeditor5-table/src/table.js";
 import TableToolbar from "@ckeditor/ckeditor5-table/src/tabletoolbar.js";
 
@@ -42,6 +43,7 @@ Editor.builtinPlugins = [
   PageBreak,
   Paragraph,
   Placeholder,
+  SourceEditing,
   Table,
   TableToolbar,
 ];
@@ -67,6 +69,9 @@ Editor.defaultConfig = {
       "bulletedList",
       "numberedList",
       "insertTable",
+      "|",
+      "sourceEditing",
+      "|",
       "placeholder",
     ],
   },

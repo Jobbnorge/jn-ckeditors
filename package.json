@@ -55,6 +55,7 @@
     ]
   },
   "dependencies": {
-    "@ckeditor/ckeditor5-image": "^31.0.0"
+    "@ckeditor/ckeditor5-image": "^31.0.0",
+    "@ckeditor/ckeditor5-source-editing": "^31.0.0"
   }
 }
