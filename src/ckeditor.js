@@ -19,7 +19,6 @@ import PageBreak from "@ckeditor/ckeditor5-page-break/src/pagebreak.js";
 import Paragraph from "@ckeditor/ckeditor5-paragraph/src/paragraph.js";
 import Table from "@ckeditor/ckeditor5-table/src/table.js";
 import TableToolbar from "@ckeditor/ckeditor5-table/src/tabletoolbar.js";
-import Placeholder from "./flettekoder";
 
 class Editor extends ClassicEditor {}
 
@@ -41,7 +40,6 @@ Editor.builtinPlugins = [
   Paragraph,
   Table,
   TableToolbar,
-  Placeholder,
 ];
 
 // Editor configuration.
