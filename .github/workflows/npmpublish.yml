@@ -14,6 +14,7 @@ jobs:
           node-version: 12
       - name: Install cli
         run: npm install -D webpack-cli
+        args: ["yes"]
       - name: Install dependencies
         run: npm link webpack
       - name: Run build
