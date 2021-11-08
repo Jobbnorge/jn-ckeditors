@@ -53,5 +53,8 @@
     "branches": [
       "main"
     ]
+  },
+  "dependencies": {
+    "@ckeditor/ckeditor5-image": "^31.0.0"
   }
 }

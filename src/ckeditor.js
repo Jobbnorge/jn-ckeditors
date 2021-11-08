@@ -13,10 +13,12 @@ import FontSize from "@ckeditor/ckeditor5-font/src/fontsize.js";
 import GeneralHtmlSupport from "@ckeditor/ckeditor5-html-support/src/generalhtmlsupport.js";
 import Heading from "@ckeditor/ckeditor5-heading/src/heading.js";
 import Italic from "@ckeditor/ckeditor5-basic-styles/src/italic.js";
+import Image from "@ckeditor/ckeditor5-image/src/image.js";
 import List from "@ckeditor/ckeditor5-list/src/list.js";
 import ListStyle from "@ckeditor/ckeditor5-list/src/liststyle.js";
 import PageBreak from "@ckeditor/ckeditor5-page-break/src/pagebreak.js";
 import Paragraph from "@ckeditor/ckeditor5-paragraph/src/paragraph.js";
+import Placeholder from "./flettekoder";
 import Table from "@ckeditor/ckeditor5-table/src/table.js";
 import TableToolbar from "@ckeditor/ckeditor5-table/src/tabletoolbar.js";
 
@@ -39,6 +41,7 @@ Editor.builtinPlugins = [
   ListStyle,
   PageBreak,
   Paragraph,
+  Placeholder,
   Table,
   TableToolbar,
 ];
