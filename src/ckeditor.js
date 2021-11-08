@@ -34,6 +34,7 @@ Editor.builtinPlugins = [
   GeneralHtmlSupport,
   Heading,
   Italic,
+  Image,
   List,
   ListStyle,
   PageBreak,
