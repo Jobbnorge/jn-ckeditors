@@ -47,5 +47,10 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Jobbnorge/jn-ckeditors.git"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ]
   }
 }
