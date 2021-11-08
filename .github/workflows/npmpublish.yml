@@ -12,6 +12,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12
+      - name: Webpack install
+        run: npm install webpack -D
       - name: Install dependencies
         run: npm link webpack
       - name: Run build
