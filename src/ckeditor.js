@@ -14,6 +14,8 @@ import GeneralHtmlSupport from "@ckeditor/ckeditor5-html-support/src/generalhtml
 import Heading from "@ckeditor/ckeditor5-heading/src/heading.js";
 import Italic from "@ckeditor/ckeditor5-basic-styles/src/italic.js";
 import Image from "@ckeditor/ckeditor5-image/src/image.js";
+import ImageResizeEditing from "@ckeditor/ckeditor5-image/src/imageresize/imageresizeediting";
+import ImageResizeHandles from "@ckeditor/ckeditor5-image/src/imageresize/imageresizehandles";
 import List from "@ckeditor/ckeditor5-list/src/list.js";
 import ListStyle from "@ckeditor/ckeditor5-list/src/liststyle.js";
 import PageBreak from "@ckeditor/ckeditor5-page-break/src/pagebreak.js";
@@ -38,6 +40,8 @@ Editor.builtinPlugins = [
   Heading,
   Italic,
   Image,
+  ImageResizeEditing,
+  ImageResizeHandles,
   List,
   ListStyle,
   PageBreak,
