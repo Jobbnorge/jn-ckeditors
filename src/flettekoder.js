@@ -163,8 +163,8 @@ class PlaceholderEditing extends Plugin {
           isAllowedInsideAttributeElement: true,
         }
       );
-      var innerText = "";
-      if(name  == "{Candidate.NationalIdentityNumber}" || name  == "{Candidate.BankAccountNumber}"){
+      let innerText = "";
+      if(isProtectedVariable(name)){
         innerText = viewWriter.createText("{" + name + "}");
       }
       else{
@@ -179,6 +179,14 @@ class PlaceholderEditing extends Plugin {
       return placeholderView;
     }
   }
+}
+
+function isProtectedVariable(variable){
+  var protectedVariables = [
+    "{Candidate.NationalIdentityNumber}",
+    "{Candidate.BankAccountNumber}"
+  ];
+  return protectedVariables.includes(variable);
 }
 
 function getDropdownItemsDefinitions(placeholderNames) {
