@@ -154,7 +154,6 @@ class PlaceholderEditing extends Plugin {
     // Helper method for both downcast converters.
     function createPlaceholderView(modelItem, viewWriter) {
       const name = modelItem.getAttribute("name");
-      console.log("modelItem:", modelItem.getAttribute("name"));
       const placeholderView = viewWriter.createContainerElement(
         "span",
         {
