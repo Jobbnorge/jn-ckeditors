@@ -166,7 +166,7 @@ class PlaceholderEditing extends Plugin {
       );
       var innerText = "";
       if(name  == "{Candidate.NationalIdentityNumber}" || name  == "{Candidate.BankAccountNumber}"){
-        innerText = viewWriter.createText(name);
+        innerText = viewWriter.createText("{" + name + "}");
       }
       else{
         innerText = viewWriter.createText("{{" + name + "}}");
