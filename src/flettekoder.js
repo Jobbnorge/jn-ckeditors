@@ -154,7 +154,7 @@ class PlaceholderEditing extends Plugin {
     // Helper method for both downcast converters.
     function createPlaceholderView(modelItem, viewWriter) {
       const name = modelItem.getAttribute("name");
-
+      console.log("modelItem:", modelItem.getAttribute("name"));
       const placeholderView = viewWriter.createContainerElement(
         "span",
         {
@@ -164,7 +164,14 @@ class PlaceholderEditing extends Plugin {
           isAllowedInsideAttributeElement: true,
         }
       );
-      const innerText = viewWriter.createText("{{" + name + "}}");
+      var innerText = "";
+      if(name  == "{Candidate.NationalIdentityNumber}" || name  == "{Candidate.BankAccountNumber}"){
+        innerText = viewWriter.createText(name);
+      }
+      else{
+        innerText = viewWriter.createText("{{" + name + "}}");
+      }
+
       viewWriter.insert(
         viewWriter.createPositionAt(placeholderView, 0),
         innerText
