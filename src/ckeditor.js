@@ -17,7 +17,7 @@ import Image from "@ckeditor/ckeditor5-image/src/image.js";
 import ImageResizeEditing from "@ckeditor/ckeditor5-image/src/imageresize/imageresizeediting";
 import ImageResizeHandles from "@ckeditor/ckeditor5-image/src/imageresize/imageresizehandles";
 import List from "@ckeditor/ckeditor5-list/src/list.js";
-import ListStyle from "@ckeditor/ckeditor5-list/src/liststyle.js";
+import ListProperties from "@ckeditor/ckeditor5-list/src/listproperties.js";
 import PageBreak from "@ckeditor/ckeditor5-page-break/src/pagebreak.js";
 import Paragraph from "@ckeditor/ckeditor5-paragraph/src/paragraph.js";
 import Placeholder from "./flettekoder";
@@ -43,7 +43,7 @@ Editor.builtinPlugins = [
   ImageResizeEditing,
   ImageResizeHandles,
   List,
-  ListStyle,
+  ListProperties,
   PageBreak,
   Paragraph,
   Placeholder,
