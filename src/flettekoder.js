@@ -79,6 +79,8 @@ class PlaceholderUI extends Plugin {
           editor.editing.view.focus();
         });
 
+        dropdownView.class = "flettekoder";
+
         return dropdownView;
       });
     }
