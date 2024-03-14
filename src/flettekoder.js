@@ -130,8 +130,8 @@ class PlaceholderEditing extends Plugin {
         classes: ["placeholder"],
       },
       model: (viewElement, { writer: modelWriter }) => {
-        // Extract the "name" from "{name}".
-        const name = viewElement.getChild(0).data.slice(1, -1);
+        // Extract the "name" from "{{name}}".
+        const name = viewElement.getChild(0).data.slice(2, -2);
 
         return modelWriter.createElement("placeholder", { name });
       },
@@ -149,8 +149,9 @@ class PlaceholderEditing extends Plugin {
 
     conversion.for("dataDowncast").elementToElement({
       model: "placeholder",
-      view: (modelItem, { writer: viewWriter }) =>
-        createPlaceholderView(modelItem, viewWriter),
+      view: (modelItem, { writer: viewWriter }) => {
+        return createPlaceholderView(modelItem, viewWriter)
+      }
     });
 
     // Helper method for both downcast converters.
@@ -165,13 +166,7 @@ class PlaceholderEditing extends Plugin {
           isAllowedInsideAttributeElement: true,
         }
       );
-      let innerText = "";
-      if(isProtectedVariable(name)){
-        innerText = viewWriter.createText("{" + name + "}");
-      }
-      else{
-        innerText = viewWriter.createText("{{" + name + "}}");
-      }
+      const innerText = viewWriter.createText("{{" + name + "}}");
 
       viewWriter.insert(
         viewWriter.createPositionAt(placeholderView, 0),
@@ -181,14 +176,6 @@ class PlaceholderEditing extends Plugin {
       return placeholderView;
     }
   }
-}
-
-function isProtectedVariable(variable){
-  var protectedVariables = [
-    "{Candidate.NationalIdentityNumber}",
-    "{Candidate.BankAccountNumber}"
-  ];
-  return protectedVariables.includes(variable);
 }
 
 function getDropdownItemsDefinitions(placeholderNames) {
