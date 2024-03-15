@@ -6,7 +6,7 @@
   "author": "CKSource",
   "description": "A custom CKEditor 5 build made by the CKEditor 5 online builder.",
   "license": "SEE LICENSE IN LICENSE.md",
-  "main": "./build/ckeditor.js",
+  "main": "./dist/ckeditor.js",
   "devDependencies": {
     "@ckeditor/ckeditor5-dev-utils": "^39.6.2",
     "@ckeditor/ckeditor5-dev-translations": "^39.6.2",

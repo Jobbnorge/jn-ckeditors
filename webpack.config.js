@@ -17,22 +17,28 @@ module.exports = {
   devtool: "source-map",
   performance: { hints: false },
 
-  entry: path.resolve(__dirname, "src", "ckeditor.js"),
+  entry: {
+    ckeditor: {
+      import: path.resolve(__dirname, "src", "ckeditor.js"),
+      filename: `[name]_v${process.env.npm_package_version}.js`
+    },
+    ckeditor_document: {
+      import: path.resolve(__dirname, "src", "ckeditor_document.js"),
+      filename: `[name]_v${process.env.npm_package_version}.js`
+    }
+  },
 
   experiments: {
     outputModule: true
   },
   
   output: {
-    // The name under which the editor will be exported.
     library: {
       type: "module"
     },
 
-    path: path.resolve(__dirname, "build"),
-    filename: "ckeditor.js",
-    // libraryTarget: "module",
-    // libraryExport: "default",
+    path: path.resolve(__dirname, "dist"),
+    filename: `ckeditor_${process.env.npm_package_version}.js`
   },
 
   optimization: {
@@ -54,8 +60,9 @@ module.exports = {
     new CKEditorTranslationsPlugin({
       // UI language. Language codes follow the https://en.wikipedia.org/wiki/ISO_639-1 format.
       // When changing the built-in language, remember to also change it in the editor's configuration (src/ckeditor.js).
-      language: "en",
-      additionalLanguages: ["nb"],
+      language: "nb",
+      additionalLanguages: ["en"],
+      addMainLanguageTranslationsToAllAssets: true
     }),
     new webpack.BannerPlugin({
       banner: bundler.getLicenseBanner(),
