@@ -25,6 +25,7 @@ import Placeholder from "./flettekoder";
 import SourceEditing from "@ckeditor/ckeditor5-source-editing/src/sourceediting";
 import Table from "@ckeditor/ckeditor5-table/src/table.js";
 import TableToolbar from "@ckeditor/ckeditor5-table/src/tabletoolbar.js";
+import { PasteFromOffice } from '@ckeditor/ckeditor5-paste-from-office';
 
 class Editor extends ClassicEditor {}
 
@@ -52,6 +53,7 @@ Editor.builtinPlugins = [
   SourceEditing,
   Table,
   TableToolbar,
+  PasteFromOffice,
 ];
 
 // Editor configuration.
