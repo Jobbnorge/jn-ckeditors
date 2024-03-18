@@ -26,6 +26,10 @@ import SourceEditing from "@ckeditor/ckeditor5-source-editing/src/sourceediting"
 import Table from "@ckeditor/ckeditor5-table/src/table.js";
 import TableToolbar from "@ckeditor/ckeditor5-table/src/tabletoolbar.js";
 import { PasteFromOffice } from '@ckeditor/ckeditor5-paste-from-office';
+import { Autosave } from '@ckeditor/ckeditor5-autosave';
+import { FindAndReplace } from '@ckeditor/ckeditor5-find-and-replace';
+import { HorizontalLine } from '@ckeditor/ckeditor5-horizontal-line';
+import { TableProperties, TableCellProperties, TableColumnResize, TableCaption } from '@ckeditor/ckeditor5-table';
 
 class Editor extends ClassicEditor {}
 
@@ -54,6 +58,13 @@ Editor.builtinPlugins = [
   Table,
   TableToolbar,
   PasteFromOffice,
+  Autosave,
+  FindAndReplace,
+  HorizontalLine,
+  TableProperties,
+  TableCellProperties,
+  TableColumnResize,
+  TableCaption,
 ];
 
 // Editor configuration.
@@ -63,6 +74,8 @@ Editor.defaultConfig = {
       "pageBreak",
       "undo",
       "redo",
+      "|",
+      "findAndReplace",
       "|",
       "heading",
       "|",
@@ -78,6 +91,7 @@ Editor.defaultConfig = {
       "numberedList",
       "todoList",
       "insertTable",
+      "horizontalLine",
       "|",
       "sourceEditing",
       "|",
@@ -85,7 +99,16 @@ Editor.defaultConfig = {
     ],
   },
   table: {
-    contentToolbar: ["tableColumn", "tableRow", "mergeTableCells"],
+    contentToolbar: [ 
+      "toggleTableCaption", 
+      "|", 
+      "tableColumn", 
+      "tableRow", 
+      "mergeTableCells", 
+      "|", 
+      "tableProperties", 
+      "tableCellProperties"
+    ],
   },
 };
 
