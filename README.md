@@ -1,3 +1,5 @@
+# Jobbnorge CkEditor
+
 ## Git commit codewords for building npm-package
 
 ```
