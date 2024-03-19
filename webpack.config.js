@@ -10,23 +10,34 @@
 const path = require("path");
 const webpack = require("webpack");
 const { bundler, styles } = require("@ckeditor/ckeditor5-dev-utils");
-const CKEditorWebpackPlugin = require("@ckeditor/ckeditor5-dev-webpack-plugin");
+const { CKEditorTranslationsPlugin }  = require("@ckeditor/ckeditor5-dev-translations");
 const TerserWebpackPlugin = require("terser-webpack-plugin");
 
 module.exports = {
   devtool: "source-map",
   performance: { hints: false },
 
-  entry: path.resolve(__dirname, "src", "ckeditor.js"),
+  entry: {
+    ckeditor: {
+      import: path.resolve(__dirname, "src", "ckeditor.js"),
+      filename: `[name].js`
+    },
+    ckeditor_document: {
+      import: path.resolve(__dirname, "src", "ckeditor_document.js"),
+      filename: `[name]_v${process.env.npm_package_version}.js`
+    }
+  },
 
+  experiments: {
+    outputModule: true
+  },
+  
   output: {
-    // The name under which the editor will be exported.
-    library: "ClassicEditor",
+    library: {
+      type: "module"
+    },
 
-    path: path.resolve(__dirname, "build"),
-    filename: "ckeditor.js",
-    libraryTarget: "umd",
-    libraryExport: "default",
+    path: path.resolve(__dirname, "dist")
   },
 
   optimization: {
@@ -45,11 +56,12 @@ module.exports = {
   },
 
   plugins: [
-    new CKEditorWebpackPlugin({
+    new CKEditorTranslationsPlugin({
       // UI language. Language codes follow the https://en.wikipedia.org/wiki/ISO_639-1 format.
       // When changing the built-in language, remember to also change it in the editor's configuration (src/ckeditor.js).
-      language: "en",
-      additionalLanguages: "all",
+      language: "nb",
+      additionalLanguages: ["en"],
+      addMainLanguageTranslationsToAllAssets: true
     }),
     new webpack.BannerPlugin({
       banner: bundler.getLicenseBanner(),
@@ -62,6 +74,7 @@ module.exports = {
       {
         test: /\.svg$/,
         use: ["raw-loader"],
+        type: 'javascript/auto'
       },
       {
         test: /\.css$/,

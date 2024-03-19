@@ -17,13 +17,19 @@ import Image from "@ckeditor/ckeditor5-image/src/image.js";
 import ImageResizeEditing from "@ckeditor/ckeditor5-image/src/imageresize/imageresizeediting";
 import ImageResizeHandles from "@ckeditor/ckeditor5-image/src/imageresize/imageresizehandles";
 import List from "@ckeditor/ckeditor5-list/src/list.js";
-import ListStyle from "@ckeditor/ckeditor5-list/src/liststyle.js";
+import ListProperties from "@ckeditor/ckeditor5-list/src/listproperties.js";
+import { TodoList } from '@ckeditor/ckeditor5-list';
 import PageBreak from "@ckeditor/ckeditor5-page-break/src/pagebreak.js";
 import Paragraph from "@ckeditor/ckeditor5-paragraph/src/paragraph.js";
 import Placeholder from "./flettekoder";
 import SourceEditing from "@ckeditor/ckeditor5-source-editing/src/sourceediting";
 import Table from "@ckeditor/ckeditor5-table/src/table.js";
 import TableToolbar from "@ckeditor/ckeditor5-table/src/tabletoolbar.js";
+import { PasteFromOffice } from '@ckeditor/ckeditor5-paste-from-office';
+import { Autosave } from '@ckeditor/ckeditor5-autosave';
+import { FindAndReplace } from '@ckeditor/ckeditor5-find-and-replace';
+import { HorizontalLine } from '@ckeditor/ckeditor5-horizontal-line';
+import { TableProperties, TableCellProperties, TableColumnResize, TableCaption } from '@ckeditor/ckeditor5-table';
 
 class Editor extends ClassicEditor {}
 
@@ -43,13 +49,22 @@ Editor.builtinPlugins = [
   ImageResizeEditing,
   ImageResizeHandles,
   List,
-  ListStyle,
+  ListProperties,
+  TodoList,
   PageBreak,
   Paragraph,
   Placeholder,
   SourceEditing,
   Table,
   TableToolbar,
+  PasteFromOffice,
+  Autosave,
+  FindAndReplace,
+  HorizontalLine,
+  TableProperties,
+  TableCellProperties,
+  TableColumnResize,
+  TableCaption,
 ];
 
 // Editor configuration.
@@ -59,6 +74,8 @@ Editor.defaultConfig = {
       "pageBreak",
       "undo",
       "redo",
+      "|",
+      "findAndReplace",
       "|",
       "heading",
       "|",
@@ -72,7 +89,9 @@ Editor.defaultConfig = {
       "blockQuote",
       "bulletedList",
       "numberedList",
+      "todoList",
       "insertTable",
+      "horizontalLine",
       "|",
       "sourceEditing",
       "|",
@@ -80,7 +99,16 @@ Editor.defaultConfig = {
     ],
   },
   table: {
-    contentToolbar: ["tableColumn", "tableRow", "mergeTableCells"],
+    contentToolbar: [ 
+      "toggleTableCaption", 
+      "|", 
+      "tableColumn", 
+      "tableRow", 
+      "mergeTableCells", 
+      "|", 
+      "tableProperties", 
+      "tableCellProperties"
+    ],
   },
 };
 
