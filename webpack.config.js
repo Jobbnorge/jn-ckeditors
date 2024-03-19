@@ -20,7 +20,7 @@ module.exports = {
   entry: {
     ckeditor: {
       import: path.resolve(__dirname, "src", "ckeditor.js"),
-      filename: `[name]_v${process.env.npm_package_version}.js`
+      filename: `[name].js`
     },
     ckeditor_document: {
       import: path.resolve(__dirname, "src", "ckeditor_document.js"),
@@ -37,8 +37,7 @@ module.exports = {
       type: "module"
     },
 
-    path: path.resolve(__dirname, "dist"),
-    filename: `ckeditor_${process.env.npm_package_version}.js`
+    path: path.resolve(__dirname, "dist")
   },
 
   optimization: {
