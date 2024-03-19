@@ -1,9 +1,9 @@
-name: Test and Release
+name: Build and Release
 on: [push]
 
 jobs:
-  test-and-release:
-    name: Run tests and release
+  build-and-release:
+    name: Build and release
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
@@ -12,12 +12,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 18
-      - name: Webpack install
-        run: npm install webpack -D
-      - name: Install dependencies
-        run: npm link webpack
-      - name: "XD"
-        run: npm install -D webpack-cli
       - name: Run build
         run: npm run-script build
       - name: Release
