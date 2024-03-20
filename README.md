@@ -5,7 +5,7 @@
 ```
 fix: (patch)
 feat: (minor)
-perf: (major)
+BREAKING CHANGE: (major)
 ```
 
 perf does not seem to work as intended

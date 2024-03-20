@@ -38,8 +38,20 @@
     "url": "https://github.com/Jobbnorge/jn-ckeditors.git"
   },
   "release": {
-    "branches": [
-      "main"
+    "branches": ["main"],
+    "plugins": [
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "preset": "angular",
+          "releaseRules": [
+            { "type": "pref", "release": "major" }
+          ]
+        }
+      ],
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/npm",
+      "@semantic-release/github"
     ]
   },
   "dependencies": {
