@@ -17,6 +17,15 @@ module.exports = {
   devtool: "source-map",
   performance: { hints: false },
 
+  mode: 'development',
+  devServer: {
+    static: {
+      directory: path.join(__dirname, 'sample'),
+    },
+    compress: true,
+    port: 9000,
+  },
+
   entry: {
     ckeditor: {
       import: path.resolve(__dirname, "src", "ckeditor.js"),
@@ -24,6 +33,10 @@ module.exports = {
     },
     ckeditor_document: {
       import: path.resolve(__dirname, "src", "ckeditor_document.js"),
+      filename: `[name]_v${process.env.npm_package_version}.js`
+    },
+    ckeditor_job_listing: {
+      import: path.resolve(__dirname, "src", "ckeditor_job_listing.js"),
       filename: `[name]_v${process.env.npm_package_version}.js`
     }
   },

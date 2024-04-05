@@ -16,6 +16,16 @@
 
 /* --------- EDITOR STYLES  ---------------------------------------------------------------------------------------- */
 
+main {
+	margin: 2px;
+}
+
+#editorTarget {
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin-top: 50px;
+}
+
 .editor__editable,
 /* Classic build. */
 main .ck-editor[role='application'] .ck.ck-content,

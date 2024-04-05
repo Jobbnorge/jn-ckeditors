@@ -1,7 +1,3 @@
-/**
- * @license Copyright (c) 2014-2021, CKSource - Frederico Knabben. All rights reserved.
- * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
- */
 import BlockQuote from "@ckeditor/ckeditor5-block-quote/src/blockquote.js";
 import Bold from "@ckeditor/ckeditor5-basic-styles/src/bold.js";
 import Essentials from "@ckeditor/ckeditor5-essentials/src/essentials.js";
@@ -111,6 +107,5 @@ Editor.defaultConfig = {
     ],
   },
 };
-
 
 export default Editor;

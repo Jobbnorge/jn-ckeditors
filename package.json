@@ -20,7 +20,8 @@
     "style-loader": "^2.0.0",
     "terser-webpack-plugin": "^4.2.3",
     "webpack": "^5.90.3",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4"
   },
   "browserslist": [
     "> 1%",
@@ -28,7 +29,8 @@
     "not dead"
   ],
   "scripts": {
-    "build": "webpack --mode production"
+    "build": "webpack --mode production ",
+    "dev": "webpack serve"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
@@ -38,14 +40,19 @@
     "url": "https://github.com/Jobbnorge/jn-ckeditors.git"
   },
   "release": {
-    "branches": ["main"],
+    "branches": [
+      "main"
+    ],
     "plugins": [
       [
         "@semantic-release/commit-analyzer",
         {
           "preset": "angular",
           "releaseRules": [
-            { "type": "pref", "release": "major" }
+            {
+              "type": "pref",
+              "release": "major"
+            }
           ]
         }
       ],
@@ -58,7 +65,9 @@
     "@ckeditor/ckeditor5-autosave": "^41.2.0",
     "@ckeditor/ckeditor5-basic-styles": "^41.2.0",
     "@ckeditor/ckeditor5-block-quote": "^41.2.0",
+    "@ckeditor/ckeditor5-clipboard": "^41.2.0",
     "@ckeditor/ckeditor5-editor-classic": "^41.2.0",
+    "@ckeditor/ckeditor5-editor-inline": "^41.2.0",
     "@ckeditor/ckeditor5-essentials": "^41.2.0",
     "@ckeditor/ckeditor5-find-and-replace": "^41.2.0",
     "@ckeditor/ckeditor5-font": "^41.2.0",
@@ -66,6 +75,8 @@
     "@ckeditor/ckeditor5-horizontal-line": "^41.2.0",
     "@ckeditor/ckeditor5-html-support": "^41.2.0",
     "@ckeditor/ckeditor5-image": "^41.2.0",
+    "@ckeditor/ckeditor5-indent": "^41.2.0",
+    "@ckeditor/ckeditor5-link": "^41.2.0",
     "@ckeditor/ckeditor5-list": "^41.2.0",
     "@ckeditor/ckeditor5-page-break": "^41.2.0",
     "@ckeditor/ckeditor5-paragraph": "^41.2.0",
