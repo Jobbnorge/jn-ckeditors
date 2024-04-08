@@ -1,4 +1,7 @@
-/** Inspired by https://ckeditor.com/docs/ckeditor5/latest/framework/deep-dive/clipboard.html#paste-as-plain-text-plugin-example */
+/** Inspired by 
+ * https://ckeditor.com/docs/ckeditor5/latest/framework/deep-dive/clipboard.html#paste-as-plain-text-plugin-example 
+ * https://github.com/ckeditor/ckeditor5/blob/96c4c334251bdbabcc3fe979c247a8a01e62a435/packages/ckeditor5-clipboard/src/clipboardpipeline.ts#L197
+ * */
 
 import plainTextToHtml from "@ckeditor/ckeditor5-clipboard/src/utils/plaintexttohtml";
 import { EventInfo } from "@ckeditor/ckeditor5-utils";
@@ -16,9 +19,11 @@ export default class JnPasteText extends Plugin {
     editor.editing.view.document.on(
       "clipboardInput",
       (evt, { dataTransfer, targetRanges, method }) => {
-        let _data = dataTransfer.getData("text/plain");
+        // retrieve data either as html or as plain text
+        let _data = dataTransfer.getData("text/html");
+        if (!_data) _data = plainTextToHtml(dataTransfer.getData("text/plain"));
 
-        _data = plainTextToHtml(_data);
+        // do some custom sanitizing
         _data = _data
           .replace(
             /<\/?(?!a)(?!p)(?!br)(?!ul)(?!li)(?!b)(?!strong)\b[^>]*>\s*/gi,
