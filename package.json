@@ -2,7 +2,7 @@
   "name": "@jobbnorge/jn-ckeditors",
   "homepage": "/jn-ckeditors/",
   "private": false,
-  "version": "2.1.0",
+  "version": "2.2.0",
   "author": "CKSource",
   "description": "A custom CKEditor 5 build made by the CKEditor 5 online builder.",
   "license": "SEE LICENSE IN LICENSE.md",
@@ -84,6 +84,6 @@
     "@ckeditor/ckeditor5-source-editing": "^41.2.0",
     "@ckeditor/ckeditor5-table": "^41.2.0",
     "@ckeditor/ckeditor5-theme-lark": "^41.2.0",
-    "@ckeditor/ckeditor5-watchdog": "^41.2.1"
+    "@ckeditor/ckeditor5-watchdog": "^41.2.0"
   }
 }

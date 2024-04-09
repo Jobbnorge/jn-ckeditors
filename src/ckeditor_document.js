@@ -13,19 +13,25 @@ import ImageResizeEditing from "@ckeditor/ckeditor5-image/src/imageresize/imager
 import ImageResizeHandles from "@ckeditor/ckeditor5-image/src/imageresize/imageresizehandles";
 import List from "@ckeditor/ckeditor5-list/src/list.js";
 import ListProperties from "@ckeditor/ckeditor5-list/src/listproperties.js";
-import { TodoList } from '@ckeditor/ckeditor5-list';
+import { TodoList } from "@ckeditor/ckeditor5-list";
 import PageBreak from "@ckeditor/ckeditor5-page-break/src/pagebreak.js";
 import Paragraph from "@ckeditor/ckeditor5-paragraph/src/paragraph.js";
 import Placeholder from "./flettekoder";
 import SourceEditing from "@ckeditor/ckeditor5-source-editing/src/sourceediting";
 import Table from "@ckeditor/ckeditor5-table/src/table.js";
 import TableToolbar from "@ckeditor/ckeditor5-table/src/tabletoolbar.js";
-import { PasteFromOffice } from '@ckeditor/ckeditor5-paste-from-office';
-import { Autosave } from '@ckeditor/ckeditor5-autosave';
-import { FindAndReplace } from '@ckeditor/ckeditor5-find-and-replace';
-import { HorizontalLine } from '@ckeditor/ckeditor5-horizontal-line';
-import { TableProperties, TableCellProperties, TableColumnResize, TableCaption } from '@ckeditor/ckeditor5-table';
+import { PasteFromOffice } from "@ckeditor/ckeditor5-paste-from-office";
+import { Autosave } from "@ckeditor/ckeditor5-autosave";
+import { FindAndReplace } from "@ckeditor/ckeditor5-find-and-replace";
+import { HorizontalLine } from "@ckeditor/ckeditor5-horizontal-line";
+import {
+  TableProperties,
+  TableCellProperties,
+  TableColumnResize,
+  TableCaption,
+} from "@ckeditor/ckeditor5-table";
 import JnClassicEditor from "./base/jn-classic-editor";
+import { Link } from "@ckeditor/ckeditor5-link";
 
 class Editor extends JnClassicEditor {}
 
@@ -44,6 +50,7 @@ Editor.builtinPlugins = [
   Image,
   ImageResizeEditing,
   ImageResizeHandles,
+  Link,
   List,
   ListProperties,
   TodoList,
@@ -71,6 +78,8 @@ Editor.defaultConfig = {
       "undo",
       "redo",
       "|",
+      "link",
+      "|",
       "findAndReplace",
       "|",
       "heading",
@@ -95,16 +104,29 @@ Editor.defaultConfig = {
     ],
   },
   table: {
-    contentToolbar: [ 
-      "toggleTableCaption", 
-      "|", 
-      "tableColumn", 
-      "tableRow", 
-      "mergeTableCells", 
-      "|", 
-      "tableProperties", 
-      "tableCellProperties"
+    contentToolbar: [
+      "toggleTableCaption",
+      "|",
+      "tableColumn",
+      "tableRow",
+      "mergeTableCells",
+      "|",
+      "tableProperties",
+      "tableCellProperties",
     ],
+  },
+  link: {
+    defaultProtocol: "https://",
+    decorators: {
+      openInNewTab: {
+        mode: "manual",
+        label: "Open in a new tab",
+        attributes: {
+          target: "_blank",
+          rel: "noreferrer",
+        },
+      },
+    },
   },
 };
 

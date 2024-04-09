@@ -43,6 +43,19 @@ InlineEditor.defaultConfig = {
       "redo",
     ],
   },
+  link: {
+    defaultProtocol: "https://",
+    decorators: {
+      openInNewTab: {
+        mode: "manual",
+        label: "Open in a new tab",
+        attributes: {
+          target: "_blank",
+          rel: "noreferrer",
+        },
+      },
+    },
+  },
 };
 
 export default InlineEditor;
