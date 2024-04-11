@@ -17,7 +17,7 @@ import ListProperties from "@ckeditor/ckeditor5-list/src/listproperties.js";
 import { TodoList } from "@ckeditor/ckeditor5-list";
 import PageBreak from "@ckeditor/ckeditor5-page-break/src/pagebreak.js";
 import Paragraph from "@ckeditor/ckeditor5-paragraph/src/paragraph.js";
-import Placeholder from "./flettekoder";
+import Placeholder from "./base/flettekoder";
 import SourceEditing from "@ckeditor/ckeditor5-source-editing/src/sourceediting";
 import Table from "@ckeditor/ckeditor5-table/src/table.js";
 import TableToolbar from "@ckeditor/ckeditor5-table/src/tabletoolbar.js";
