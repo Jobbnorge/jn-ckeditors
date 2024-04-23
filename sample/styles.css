@@ -26,6 +26,24 @@ main {
 	margin-top: 50px;
 }
 
+.ck-dropdown.flettekoder .ck-dropdown__panel {
+	height: 400px;
+	max-height: 100vh;
+	overflow: auto;
+	top: 36px;
+}
+
+div.ck-widget.placeholder-component {
+	padding: 5px;
+	text-align: center;
+	background-color: #CCE5EF;
+	border: 1px dashed #4c4c4c;
+}
+.ck-widget.placeholder {
+	background-color: #CCE5EF;
+	border: 1px dashed #4c4c4c;
+}
+
 .editor__editable,
 /* Classic build. */
 main .ck-editor[role='application'] .ck.ck-content,

@@ -8,7 +8,10 @@
   </head>
   <body>
     <main>
-      <div id="editorTarget"></div>
+      <div id="editorTarget">
+        <span class="placeholder">{{DateTime.Now}}</span>
+        <div class="placeholder-component">{{Component.DateTime.Now}}</div>
+      </div>
 
       <button id="btnGetData">GetData</button>
       <pre id="printData"></pre>
@@ -18,8 +21,13 @@
 
 <script type="module">
   import ClassicEditor from "./ckeditor.js";
+
+  const response = await fetch("placeholders.json");
+  const placeholders = await response.json();
+
   ClassicEditor.create(document.querySelector("#editorTarget"), {
-    licenseKey: ""
+    licenseKey: "",
+    jnvariables: placeholders
   }).then((editor) => {
     const btnGetData = document.querySelector("#btnGetData");
     const printData = document.querySelector("#printData");
