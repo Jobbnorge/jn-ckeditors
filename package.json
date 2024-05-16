@@ -85,6 +85,8 @@
     "@ckeditor/ckeditor5-source-editing": "^41.2.0",
     "@ckeditor/ckeditor5-table": "^41.2.0",
     "@ckeditor/ckeditor5-theme-lark": "^41.2.0",
+    "@ckeditor/ckeditor5-ui": "^41.2.0",
+    "@ckeditor/ckeditor5-utils": "^41.2.0",
     "@ckeditor/ckeditor5-watchdog": "^41.2.0"
   }
 }
