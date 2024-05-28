@@ -15,6 +15,12 @@
 
       <button id="btnGetData">GetData</button>
       <pre id="printData"></pre>
+      <table contenteditable="true">
+        <tr>
+          <td>Oppsummering/helhetsinntrykk: (Beskriv inntrykket fra prosessen og begrunnelse for konklusjonen)</td>
+          <td>Dette var veldig interessant. Denne søkeren vil nok åasse godt inn hos oss basert på det han skriver, samt intervjuet vi gjennomførte med hen. Det blir merkelig med en ny ansatt så raskt etter at den forrige ble ansatt i stillingen, men vi får se om dette er nok tekst til at det vil gi mening i innstillingsdokumentet etterpå. Det håper jeg jo absolutt at det vil gi. Det gjenstår imidlertid å se om det blir greit nok under testingen.</td>
+        </tr>
+      </table>
     </main>
   </body>
 </html>
@@ -27,8 +33,10 @@
 
   ClassicEditor.create(document.querySelector("#editorTarget"), {
     licenseKey: "",
-    jnvariables: placeholders
+    jnvariables: placeholders,
+    language: "nb"
   }).then((editor) => {
+    ClassicEditor.Inspector.attach( editor );
     const btnGetData = document.querySelector("#btnGetData");
     const printData = document.querySelector("#printData");
     btnGetData.addEventListener("click", () => {

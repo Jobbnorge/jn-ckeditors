@@ -42,11 +42,26 @@ export class ComponentInputView extends View {
         },
       });
 
-      if (result.status !== 200) throw new Error("Could not create component");
+      if (result.status === 500) throw new Error("Could not create component");
 
-      const components = await result.json();
+      labeledFieldView.fieldView.element.value = "";
 
-      this.fire("refreshComponentList", components);
+      if (result.status === 400) {
+        const error = await result.json();
+        if (!!error.errors.title) {
+          var msg = locale.t("Komponentnavn kunne ikke opprettes.");
+          
+          if (error.errors.title.some((i) => i === "required"))
+            msg = locale.t("Komponentnavn kan ikke være tom.");
+          else if (error.errors.title.some((i) => i === "duplicate"))
+            msg = locale.t("Komponentnavn finnes allerede i sammlingen.");
+
+          window.alert(msg);
+        }
+      } else {
+        const components = await result.json();
+        this.fire("refreshComponentList", components);
+      }
     });
 
     this.setTemplate({

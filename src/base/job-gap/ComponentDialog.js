@@ -2,6 +2,7 @@ import { Dialog, View, ViewCollection } from "@ckeditor/ckeditor5-ui";
 import { getComponents } from "./utils";
 import { ComponentListView } from "./ComponentListView";
 import { ComponentInputView } from "./ComponentInputView";
+import { ComponentDeleteView } from "./ComponentDeleteView";
 
 export class ComponentDialog extends Dialog {
   constructor(editor) {
@@ -30,8 +31,13 @@ export class ComponentDialog extends Dialog {
       componentsListView.updateComponentList(components)
     );
 
+    const componentDeleteView = new ComponentDeleteView(this.editor.locale, componentsListView);
+    componentDeleteView.on("refreshComponentList", (_, components) =>
+      componentsListView.updateComponentList(components)
+    );
+
     const viewCollection = new ViewCollection(this.editor.locale);
-    viewCollection.addMany([inputView, componentsListView]);
+    viewCollection.addMany([inputView, componentsListView, componentDeleteView]);
 
     contentView.setTemplate({
       tag: "div",

@@ -44,6 +44,11 @@ div.ck-widget.placeholder-component {
 	border: 1px dashed #4c4c4c;
 }
 
+table td {
+	border: 1px solid grey;
+	resize: none;
+}
+
 .editor__editable,
 /* Classic build. */
 main .ck-editor[role='application'] .ck.ck-content,
