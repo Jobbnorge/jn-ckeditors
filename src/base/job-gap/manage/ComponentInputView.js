@@ -3,7 +3,7 @@ import {
   LabeledFieldView,
 } from "@ckeditor/ckeditor5-ui";
 import { ButtonView, View } from "@ckeditor/ckeditor5-ui";
-import { apiUrl } from "./utils";
+import { apiUrl } from "../utils";
 
 export class ComponentInputView extends View {
   constructor(locale) {

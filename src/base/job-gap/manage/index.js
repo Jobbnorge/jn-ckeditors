@@ -12,7 +12,7 @@ add("en", {
 class JnJobGap extends Plugin {
   init() {
     // Add a button to the component factory so it is available for the editor.
-    this.editor.ui.componentFactory.add("JnJobGapToolbarButton", (locale) => {
+    this.editor.ui.componentFactory.add("JnJobGapManageComponentsButton", (locale) => {
       const buttonView = new ToolbarButton(locale);
       const dialog = new ComponentDialog(this.editor);
 

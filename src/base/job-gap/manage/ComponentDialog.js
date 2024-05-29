@@ -1,5 +1,5 @@
 import { Dialog, View, ViewCollection } from "@ckeditor/ckeditor5-ui";
-import { getComponents } from "./utils";
+import { getComponents } from "../utils";
 import { ComponentListView } from "./ComponentListView";
 import { ComponentInputView } from "./ComponentInputView";
 import { ComponentDeleteView } from "./ComponentDeleteView";
@@ -31,13 +31,20 @@ export class ComponentDialog extends Dialog {
       componentsListView.updateComponentList(components)
     );
 
-    const componentDeleteView = new ComponentDeleteView(this.editor.locale, componentsListView);
+    const componentDeleteView = new ComponentDeleteView(
+      this.editor.locale,
+      componentsListView
+    );
     componentDeleteView.on("refreshComponentList", (_, components) =>
       componentsListView.updateComponentList(components)
     );
 
     const viewCollection = new ViewCollection(this.editor.locale);
-    viewCollection.addMany([inputView, componentsListView, componentDeleteView]);
+    viewCollection.addMany([
+      inputView,
+      componentsListView,
+      componentDeleteView,
+    ]);
 
     contentView.setTemplate({
       tag: "div",
@@ -68,6 +75,14 @@ export class ComponentDialog extends Dialog {
       ],
       onHide() {
         this.isOn = false;
+        const event = new CustomEvent("myCustomEvent", {
+          detail: "component payload goes here",
+          bubbles: true,
+        });
+
+        this.editor.fire("myCustomEventFoo")
+
+        document.querySelector("main").dispatchEvent(event);
       },
     });
   }

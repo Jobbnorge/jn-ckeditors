@@ -1,5 +1,5 @@
 import { ButtonView, View } from "@ckeditor/ckeditor5-ui";
-import { apiUrl } from "./utils";
+import { apiUrl } from "../utils";
 
 export class ComponentDeleteView extends View {
   constructor(locale, componentListView) {
