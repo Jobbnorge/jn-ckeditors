@@ -1,9 +1,9 @@
 import { Plugin } from "@ckeditor/ckeditor5-core";
-import { AddComponentButton } from "./AddComponentButton";
+import { JnAddComponentDropdown } from "./JnAddComponentDropdown";
 
 class JnJobGapApply extends Plugin {
   static get requires() {
-    return [AddComponentButton];
+    return [JnAddComponentDropdown];
   }
 }
 

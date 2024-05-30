@@ -18,6 +18,9 @@ export class ComponentDialog extends Dialog {
     this.isOn = true;
 
     const components = await getComponents();
+    const addComponentDropdown = this.editor.plugins.get(
+      "JnAddComponentDropdown"
+    );
 
     const contentView = new View(this.editor.locale);
 
@@ -27,17 +30,19 @@ export class ComponentDialog extends Dialog {
     );
 
     const inputView = new ComponentInputView(this.editor.locale);
-    inputView.on("refreshComponentList", (_, components) =>
-      componentsListView.updateComponentList(components)
-    );
+    inputView.on("refreshComponentList", (_, components) => {
+      componentsListView.updateComponentList(components);
+      addComponentDropdown.setComponentList(components);
+    });
 
     const componentDeleteView = new ComponentDeleteView(
       this.editor.locale,
       componentsListView
     );
-    componentDeleteView.on("refreshComponentList", (_, components) =>
-      componentsListView.updateComponentList(components)
-    );
+    componentDeleteView.on("refreshComponentList", (_, components) => {
+      componentsListView.updateComponentList(components);
+      addComponentDropdown.setComponentList(components);
+    });
 
     const viewCollection = new ViewCollection(this.editor.locale);
     viewCollection.addMany([
@@ -75,14 +80,6 @@ export class ComponentDialog extends Dialog {
       ],
       onHide() {
         this.isOn = false;
-        const event = new CustomEvent("myCustomEvent", {
-          detail: "component payload goes here",
-          bubbles: true,
-        });
-
-        this.editor.fire("myCustomEventFoo")
-
-        document.querySelector("main").dispatchEvent(event);
       },
     });
   }
