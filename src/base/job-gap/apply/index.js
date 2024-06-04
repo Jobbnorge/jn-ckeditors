@@ -1,9 +1,18 @@
 import { Plugin } from "@ckeditor/ckeditor5-core";
 import { JnAddComponentDropdown } from "./JnAddComponentDropdown";
+import JnApplyComponentCommand from "./JnApplyComponentCommand";
+import JnApplyComponentEditing from "./JnApplyComponentEditing";
 
 class JnJobGapApply extends Plugin {
   static get requires() {
-    return [JnAddComponentDropdown];
+    return [JnAddComponentDropdown, JnApplyComponentEditing];
+  }
+
+  init() {
+    this.editor.commands.add(
+      "jnApplyComponent",
+      new JnApplyComponentCommand(this.editor)
+    );
   }
 }
 

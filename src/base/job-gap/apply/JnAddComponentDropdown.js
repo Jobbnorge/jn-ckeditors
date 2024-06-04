@@ -47,11 +47,8 @@ export class JnAddComponentDropdown extends Plugin {
         });
 
         dropdownView.on("execute", (evt) => {
-          console.info("item clicked", evt);
-          // editor.execute("placeholder", {
-          //   value: evt.source.commandParam,
-          // });
-          // editor.editing.view.focus();
+          editor.execute("jnApplyComponent", evt.source.commandParam);
+          editor.editing.view.focus();
         });
 
         return dropdownView;
@@ -66,7 +63,7 @@ function getDropdownItemsDefinitions(components) {
     const definition = {
       type: "button",
       model: new Model({
-        commandParam: obj.id,
+        commandParam: obj.title,
         label: obj.title,
         withText: true,
       }),
