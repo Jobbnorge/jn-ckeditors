@@ -33,11 +33,15 @@ module.exports = {
     },
     ckeditor_document: {
       import: path.resolve(__dirname, "src", "ckeditor_document.js"),
-      filename: `[name]_v${process.env.npm_package_version}.js`
+      filename: `[name].js`
     },
     ckeditor_job_listing: {
       import: path.resolve(__dirname, "src", "ckeditor_job_listing.js"),
-      filename: `[name]_v${process.env.npm_package_version}.js`
+      filename: `[name].js`
+    },
+    ckeditor_job_gap: {
+      import: path.resolve(__dirname, "src", "ckeditor_job_gap.js"),
+      filename: `[name].js`
     }
   },
 
