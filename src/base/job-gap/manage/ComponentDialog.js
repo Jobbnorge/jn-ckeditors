@@ -1,5 +1,5 @@
 import { Dialog, View, ViewCollection } from "@ckeditor/ckeditor5-ui";
-import { getComponents } from "../utils";
+import utils from "../utils";
 import { ComponentListView } from "./ComponentListView";
 import { ComponentInputView } from "./ComponentInputView";
 import { ComponentDeleteView } from "./ComponentDeleteView";
@@ -17,7 +17,7 @@ export class ComponentDialog extends Dialog {
     }
     this.isOn = true;
 
-    const components = await getComponents();
+    const components = await utils.getComponents();
     const addComponentDropdown = this.editor.plugins.get(
       "JnAddComponentDropdown"
     );
@@ -61,19 +61,18 @@ export class ComponentDialog extends Dialog {
           maxWidth: "500px",
         },
         tabindex: -1,
-        id: "jnDialogContainer",
+        id: "jnJobGapManageDialog",
       },
       children: viewCollection,
     });
 
     // Tell the plugin to display a dialog with the title, content, and one action button.
     this.show({
-      title: "Dialog with text",
+      title: this.editor.locale.t("Jobbanalyse - Komponenter"),
       content: contentView,
       actionButtons: [
         {
-          label: "OK",
-          class: "ck-button-action",
+          label: this.editor.locale.t("Lukk"),
           withText: true,
           onExecute: () => this.hide(),
         },

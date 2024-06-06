@@ -5,7 +5,15 @@ import { ComponentDialog } from "./ComponentDialog";
 
 // add localization https://ckeditor.com/docs/ckeditor5/latest/framework/deep-dive/ui/localization.html#introduction
 add("en", {
-  "Rediger komponenter for jobbanalyse": ["Manage components"],
+  "Rediger komponenter for jobbanalyse": "Manage components",
+  "Jobbanalyse - Komponenter": "Jobanalysis - components",
+  Lagre: "Save",
+  Komponentnavn: "Name of the component",
+  Komponentbibliotek: "Component library",
+  "Slett valgt(e)": "Delete selected",
+  "Merk! Sletting av komponenter vil ikke oppdatere/endre maler eller dokumenter der komponenten er i bruk.":
+    "Component deletion will not affect any existing templates or documents.",
+  Lukk: "Close",
 });
 
 // Create a plugin that brings a button that toggles the visibility of a dialog window.

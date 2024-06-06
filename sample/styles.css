@@ -60,14 +60,22 @@ table td {
   right: 0px;
   top: 0px;
   padding: 2px 12px;
-  background-color: #017CAF;
+  background-color: #017caf;
   color: #fff;
   cursor: pointer;
 }
 
 .ck div.gapcontent {
   background-color: #cce5ef;
-  border: 1px solid #017CAF;
+  border: 1px solid #017caf;
+}
+
+.ck #jnJobGapManageDialog p {
+  white-space: normal;
+}
+
+.ck #jnJobGapManageDialog fieldset {
+  margin-top: 12px;
 }
 
 .editor__editable,

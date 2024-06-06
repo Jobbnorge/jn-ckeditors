@@ -5,7 +5,7 @@ import {
 import Collection from "@ckeditor/ckeditor5-utils/src/collection";
 import Model from "@ckeditor/ckeditor5-ui/src/model";
 import Plugin from "@ckeditor/ckeditor5-core/src/plugin";
-import { getComponents } from "../utils";
+import utils from "../utils";
 
 export class JnAddComponentDropdown extends Plugin {
   static get pluginName() {
@@ -22,7 +22,7 @@ export class JnAddComponentDropdown extends Plugin {
     const editor = this.editor;
     const t = editor.t;
 
-    this.componentList = await getComponents();
+    this.componentList = await utils.getComponents();
 
     if (this.componentList) {
       editor.ui.componentFactory.add("JnJobGapAddComponentButton", (locale) => {
@@ -41,7 +41,7 @@ export class JnAddComponentDropdown extends Plugin {
         });
 
         dropdownView.buttonView.set({
-          label: t("Komponenter"),
+          label: t("Legg til komponent"),
           tooltip: true,
           withText: true,
         });

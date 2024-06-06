@@ -3,7 +3,7 @@ import {
   LabeledFieldView,
 } from "@ckeditor/ckeditor5-ui";
 import { ButtonView, View } from "@ckeditor/ckeditor5-ui";
-import { apiUrl } from "../utils";
+import utils from "../utils";
 
 export class ComponentInputView extends View {
   constructor(locale) {
@@ -26,14 +26,12 @@ export class ComponentInputView extends View {
 
     submitButton.extendTemplate({
       attributes: {
-        style: {
-          marginLeft: "1rem",
-        },
+        class: "primary",
       },
     });
 
     submitButton.on("execute", async () => {
-      const result = await fetch(`${apiUrl}/jobgap/component`, {
+      const result = await fetch(`${utils.apiUrl}/jobgap/component`, {
         credentials: "include",
         method: "POST",
         body: `"${labeledFieldView.fieldView.element.value}"`,
@@ -50,13 +48,13 @@ export class ComponentInputView extends View {
         const error = await result.json();
         if (!!error.errors.title) {
           var msg = locale.t("Komponentnavn kunne ikke opprettes.");
-          
+
           if (error.errors.title.some((i) => i === "required"))
             msg = locale.t("Komponentnavn kan ikke være tom.");
           else if (error.errors.title.some((i) => i === "duplicate"))
             msg = locale.t("Komponentnavn finnes allerede i sammlingen.");
 
-          window.alert(msg);
+          labeledFieldView.errorText = msg;
         }
       } else {
         const components = await result.json();

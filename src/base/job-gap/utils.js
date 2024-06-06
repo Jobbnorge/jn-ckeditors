@@ -1,13 +1,29 @@
-export const apiUrl = "https://localhost:8001";
+class Utils {
+  get apiUrl() {
+    switch (window.location.hostname) {
+      case "localhost":
+        return "https://localhost:8001";
+      case "test.jobbnorge.no":
+        return "https://testjaapi.jobbnorge.no";
+      case "staging.jobbnorge.no":
+        return "https://stagingjaapi.jobbnorge.no";
+      default:
+        return "https://jaapi.jobbnorge.no";
+    }
+  }
 
-export async function getComponents() {
-  return new Promise(async (resolve) => {
-    const result = await fetch(`${apiUrl}/jobgap/components`, {
-      credentials: "include",
+  async getComponents() {
+    return new Promise(async (resolve) => {
+      const result = await fetch(`${this.apiUrl}/jobgap/components`, {
+        credentials: "include",
+      });
+
+      if (result.status !== 200)
+        throw new Error("Could not fetch data from Api");
+
+      resolve(await result.json());
     });
-
-    if (result.status !== 200) throw new Error("Could not fetch data from Api");
-
-    resolve(await result.json());
-  });
+  }
 }
+
+export default new Utils();

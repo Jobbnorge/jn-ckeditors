@@ -1,5 +1,5 @@
 import { ButtonView, View } from "@ckeditor/ckeditor5-ui";
-import { apiUrl } from "../utils";
+import utils from "../utils";
 
 export class ComponentDeleteView extends View {
   constructor(locale, componentListView) {
@@ -8,15 +8,13 @@ export class ComponentDeleteView extends View {
     const deleteButton = new ButtonView(locale);
 
     deleteButton.set({
-      label: locale.t("Slett valgt"),
+      label: locale.t("Slett valgt(e)"),
       withText: true,
     });
 
     deleteButton.extendTemplate({
       attributes: {
-        style: {
-          marginTop: "6px",
-        },
+        class: "red",
       },
     });
 
@@ -28,7 +26,7 @@ export class ComponentDeleteView extends View {
         .filter((c) => c.checked)
         .map((c) => c.value);
 
-      const result = await fetch(`${apiUrl}/jobgap/component`, {
+      const result = await fetch(`${utils.apiUrl}/jobgap/component`, {
         credentials: "include",
         method: "DELETE",
         body: JSON.stringify(componentIds),
@@ -45,8 +43,9 @@ export class ComponentDeleteView extends View {
     });
 
     const infoText = document.createElement("p");
-    infoText.innerHTML =
-      "Merk! Sletting av komponenter vil ikke oppdatere/endre maler eller dokumenter der komponenten er i bruk.";
+    infoText.innerHTML = locale.t(
+      "Merk! Sletting av komponenter vil ikke oppdatere/endre maler eller dokumenter der komponenten er i bruk."
+    );
 
     this.setTemplate({
       tag: "div",
