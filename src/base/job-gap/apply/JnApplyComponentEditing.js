@@ -68,8 +68,6 @@ export default class JnApplyComponentEditing extends Plugin {
       view: (modelElement, { writer: viewWriter }) => {
         const componentName = modelElement.getAttribute("name");
 
-        console.info(componentName);
-
         const div = viewWriter.createContainerElement("div", {
           class: "gapcontainer",
           jobgaptitle: componentName,
