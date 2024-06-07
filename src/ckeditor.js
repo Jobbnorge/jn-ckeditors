@@ -122,12 +122,6 @@ Editor.defaultConfig = {
       "tableProperties",
       "tableCellProperties",
     ],
-    tableProperties: {
-      defaultProperties: {
-        borderStyle: "dashed",
-        width: "500px",
-      },
-    },
   },
   link: {
     defaultProtocol: "https://",

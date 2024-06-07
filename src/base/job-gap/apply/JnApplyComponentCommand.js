@@ -25,4 +25,15 @@ export default class JnApplyComponentCommand extends Command {
       writer.setSelection(gapContainer, "on");
     });
   }
+
+  refresh() {
+    const model = this.editor.model;
+    const selection = model.document.selection;
+    const allowedIn = model.schema.findAllowedParent(
+      selection.getFirstPosition(),
+      "gapcontainer"
+    );
+
+    this.isEnabled = allowedIn !== null;
+  }
 }

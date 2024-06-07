@@ -40,7 +40,7 @@ export default class JnApplyComponentEditing extends Plugin {
     schema.register("gapcontent", {
       isLimit: true,
       allowIn: "gapcontainer",
-      allowContentOf: "$root",
+      allowChildren: ["paragraph"],
     });
   }
 
