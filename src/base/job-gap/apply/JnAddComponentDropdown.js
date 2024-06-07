@@ -51,6 +51,10 @@ export class JnAddComponentDropdown extends Plugin {
           editor.editing.view.focus();
         });
 
+        dropdownView
+          .bind("isEnabled")
+          .to(editor.commands.get("jnApplyComponent"));
+
         return dropdownView;
       });
     }

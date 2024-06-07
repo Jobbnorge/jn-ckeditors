@@ -10,6 +10,15 @@ import JnClassicEditor from "./base/jn-classic-editor";
 import { Link } from "@ckeditor/ckeditor5-link";
 import { JnJobGap } from "./base/job-gap/manage";
 import { JnJobGapApply } from "./base/job-gap/apply";
+import Table from "@ckeditor/ckeditor5-table/src/table.js";
+import TableToolbar from "@ckeditor/ckeditor5-table/src/tabletoolbar.js";
+import {
+  TableProperties,
+  TableCellProperties,
+  TableColumnResize,
+  TableCaption,
+} from "@ckeditor/ckeditor5-table";
+import { TodoList } from "@ckeditor/ckeditor5-list";
 
 class Editor extends JnClassicEditor {}
 
@@ -20,13 +29,20 @@ Editor.builtinPlugins = [
   GeneralHtmlSupport,
   Heading,
   Image,
+  JnJobGap,
+  JnJobGapApply,
   Link,
   List,
   ListProperties,
   Paragraph,
   PasteFromOffice,
-  JnJobGap,
-  JnJobGapApply
+  Table,
+  TableCellProperties,
+  TableColumnResize,
+  TableCaption,
+  TableProperties,
+  TableToolbar,
+  TodoList
 ];
 
 // Editor configuration.
@@ -44,9 +60,23 @@ Editor.defaultConfig = {
       "|",
       "bulletedList",
       "numberedList",
+      "todoList",
+      "insertTable",
       "|",
       "JnJobGapAddComponentButton",
       "JnJobGapManageComponentsButton",
+    ],
+  },
+  table: {
+    contentToolbar: [
+      "toggleTableCaption",
+      "|",
+      "tableColumn",
+      "tableRow",
+      "mergeTableCells",
+      "|",
+      "tableProperties",
+      "tableCellProperties",
     ],
   },
   link: {
