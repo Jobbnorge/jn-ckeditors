@@ -33,8 +33,6 @@ import {
 } from "@ckeditor/ckeditor5-table";
 import { Link } from "@ckeditor/ckeditor5-link";
 import CKEditorInspector from "@ckeditor/ckeditor5-inspector";
-import { JnJobGap } from "./base/job-gap/manage";
-import { JnJobGapApply } from "./base/job-gap/apply";
 
 class Editor extends ClassicEditor {}
 
@@ -71,8 +69,6 @@ Editor.builtinPlugins = [
   TableCellProperties,
   TableColumnResize,
   TableCaption,
-  JnJobGap,
-  JnJobGapApply,
 ];
 
 // Editor configuration.
@@ -106,9 +102,6 @@ Editor.defaultConfig = {
       "sourceEditing",
       "|",
       "placeholder",
-      "|",
-      "JnJobGapAddComponentButton",
-      "JnJobGapManageComponentsButton",
     ],
   },
   table: {
