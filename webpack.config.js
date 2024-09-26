@@ -42,6 +42,10 @@ module.exports = {
     ckeditor_job_gap: {
       import: path.resolve(__dirname, "src", "ckeditor_job_gap.js"),
       filename: `[name].js`
+    },
+    ckeditor_markdown: {
+      import: path.resolve(__dirname, "src", "ckeditor_markdown.js"),
+      filename: `[name].js`
     }
   },
 
