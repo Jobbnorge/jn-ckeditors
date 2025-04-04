@@ -8,6 +8,7 @@ import FontSize from "@ckeditor/ckeditor5-font/src/fontsize.js";
 import GeneralHtmlSupport from "@ckeditor/ckeditor5-html-support/src/generalhtmlsupport.js";
 import Heading from "@ckeditor/ckeditor5-heading/src/heading.js";
 import Italic from "@ckeditor/ckeditor5-basic-styles/src/italic.js";
+import Underline from "@ckeditor/ckeditor5-basic-styles/src/underline";
 import Image from "@ckeditor/ckeditor5-image/src/image.js";
 import ImageResizeEditing from "@ckeditor/ckeditor5-image/src/imageresize/imageresizeediting";
 import ImageResizeHandles from "@ckeditor/ckeditor5-image/src/imageresize/imageresizehandles";
@@ -47,6 +48,7 @@ Editor.builtinPlugins = [
   GeneralHtmlSupport,
   Heading,
   Italic,
+  Underline,
   Image,
   ImageResizeEditing,
   ImageResizeHandles,
@@ -86,6 +88,7 @@ Editor.defaultConfig = {
       "|",
       "bold",
       "italic",
+      "underline",
       "fontFamily",
       "fontColor",
       "fontSize",
