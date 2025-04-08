@@ -35,10 +35,6 @@ module.exports = {
       import: path.resolve(__dirname, "src", "ckeditor_document.js"),
       filename: `[name].js`
     },
-    ckeditor_document_generator: {
-      import: path.resolve(__dirname, "src", "ckeditor_document_generator.js"),
-      filename: `[name].js`
-    },
     ckeditor_job_listing: {
       import: path.resolve(__dirname, "src", "ckeditor_job_listing.js"),
       filename: `[name].js`
@@ -51,10 +47,10 @@ module.exports = {
       import: path.resolve(__dirname, "src", "ckeditor_markdown.js"),
       filename: `[name].js`
     },
-    ckeditor_auto_reply: {
-      import: path.resolve(__dirname, "src", "ckeditor_auto_reply.js"),
+    ckeditor_ingress_autoReply: {
+      import: path.resolve(__dirname, "src", "ckeditor_ingress_autoReply.js"),
       filename: `[name].js`
-    }
+    },
   },
 
   experiments: {
