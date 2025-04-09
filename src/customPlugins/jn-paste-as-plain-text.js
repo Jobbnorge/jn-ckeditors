@@ -56,7 +56,10 @@ export default class JnPasteAsPlainTextPlugin extends Plugin {
         if (isPlainTextMode) {
           // If in plain text mode, get only plain text
           _data = dataTransfer.getData("text/plain");
-          _data = plainTextToHtml(_data); // Convert plain text to HTML (or directly use as required)
+          // _data = plainTextToHtml(_data); // Convert plain text to HTML (or directly use as required)
+          // Convert any {{}} placeholders into the corresponding placeholder elements
+          _data = this._processPlaceholderText(_data);
+          _data = plainTextToHtml(_data); // Convert plain text to HTML
         } else {
           // Otherwise, try to get HTML (formatted text)
           _data = dataTransfer.getData("text/html");
@@ -87,5 +90,13 @@ export default class JnPasteAsPlainTextPlugin extends Plugin {
         evt.stop();
       });
     }
-  }
-  
+
+    // Helper function to process plain text and wrap {{text}} in placeholders
+    _processPlaceholderText(text) {
+      // Regex to match {{text}} pattern
+      const regex = /{{(.*?)}}/g;
+      return text.replace(regex, (match, name) => {
+        return `<span class="placeholder" data-name="${name}">${match}</span>`;
+      });
+    }
+}

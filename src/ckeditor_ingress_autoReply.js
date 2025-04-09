@@ -25,11 +25,11 @@ import { HorizontalLine } from "@ckeditor/ckeditor5-horizontal-line";
 import { Link } from "@ckeditor/ckeditor5-link";
 import CKEditorInspector from "@ckeditor/ckeditor5-inspector";
 import Indent from "@ckeditor/ckeditor5-indent/src/indent";
-import JnPasteAsPlainTextPlugin from "./customPlugins/jn-paste-as-plain-text";
 
 import PageBreak from "@ckeditor/ckeditor5-page-break/src/pagebreak.js";
 import SpecialCharacters from "@ckeditor/ckeditor5-special-characters/src/specialcharacters";
 import SpecialCharactersEssentials from "@ckeditor/ckeditor5-special-characters/src/specialcharactersessentials";
+import JnPasteAsPlainTextPlugin from "./customPlugins/jn-paste-as-plain-text";
 
 import JnClassicEditor from "./base/jn-classic-editor";
 
@@ -57,7 +57,6 @@ const shared = {
         FindAndReplace,
         HorizontalLine,
         Indent,
-        JnPasteAsPlainTextPlugin
     ],
     config_Link: {
         defaultProtocol: "https://",
@@ -89,7 +88,8 @@ IngressEditor.builtinPlugins = [
     ...shared.plugins,
     PageBreak,
     SpecialCharacters,
-    SpecialCharactersEssentials
+    SpecialCharactersEssentials,
+    JnPasteAsPlainTextPlugin
 ]
 
 // Editor configuration.
@@ -98,8 +98,6 @@ AutoReplyEditor.defaultConfig = {
     items: [
       "undo",
       "redo",
-      "|",
-      "pasteAsPlainText",
       "|",
       "link",
       "insertImage",
