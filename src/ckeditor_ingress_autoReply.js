@@ -42,7 +42,6 @@ const shared = {
         Essentials,
         GeneralHtmlSupport,
         Heading,
-        Italic,
         Image,
         ImageInsertViaUrl,
         ImageResizeEditing,
@@ -82,6 +81,7 @@ AutoReplyEditor.builtinPlugins = [
   FontSize,
   Placeholder,
   Underline,
+  Italic,
 ];
 
 IngressEditor.builtinPlugins = [
@@ -144,7 +144,6 @@ IngressEditor.defaultConfig = {
         "heading",
         "|",
         "bold",
-        "italic",
         "|",
         "bulletedList",
         "numberedList",
