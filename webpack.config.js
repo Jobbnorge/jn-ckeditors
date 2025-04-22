@@ -46,7 +46,11 @@ module.exports = {
     ckeditor_markdown: {
       import: path.resolve(__dirname, "src", "ckeditor_markdown.js"),
       filename: `[name].js`
-    }
+    },
+    ckeditor_ingress_autoReply: {
+      import: path.resolve(__dirname, "src", "ckeditor_ingress_autoReply.js"),
+      filename: `[name].js`
+    },
   },
 
   experiments: {
