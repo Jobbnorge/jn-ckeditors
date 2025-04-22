@@ -43,7 +43,6 @@ export default class JnPasteAsPlainTextPlugin extends Plugin {
           const cssClass = "ck-toolbar__button-active";
           if (isPlainTextMode) button.element.classList.add(cssClass);
           else button.element.classList.remove(cssClass);
-          console.log(`Paste mode is now: ${isPlainTextMode ? "Plain Text" : "Formatted"}`);
         });
   
         return button;
