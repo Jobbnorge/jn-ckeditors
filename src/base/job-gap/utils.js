@@ -2,7 +2,7 @@ class Utils {
   get apiUrl() {
     switch (window.location.hostname) {
       case "localhost":
-        return "https://localhost:8001";
+        return "http://localhost:8000";
       case "test.jobbnorge.no":
         return "https://testjaapi.jobbnorge.no";
       case "staging.jobbnorge.no":
